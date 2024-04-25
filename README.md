@@ -4,6 +4,9 @@
 - Header
 - Login Form
 - Sign Up form 
+- Used Regex for validating Email and Password
+- Firebase Setuped
+- Create Signup User Account in firebase
 
 # Features
 - Browse (After Authentication)
