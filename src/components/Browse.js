@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
 import { removeUser } from '../utils/userSlice'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { auth } from '../utils/firebase'
+import useMovieTrending from '../hooks/useMovieTrending'
+import MainContainer from './MainContainer'
+import SecondaryContainer from './SecondaryContainer'
+
 const Browse = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
@@ -12,15 +17,35 @@ const Browse = () => {
     dispatch(removeUser());
     navigate('/');
   }
+
+  useMovieTrending();
+
+  useEffect(()=>{
+    if(user===null){
+      console.log("Current User ",auth.currentUser);
+      navigate("/");
+    }
+  },[user])
+
   return (
     <>
-    <div className='flex justify-end'>
+    <div className='flex justify-end absolute'>
       <Header/>
       <div>
       <button onClick={signOutFunction} className='z-10 text-white bg-red-500 text-bold text-lg h-10 w-20 p-1 mt-4 mx-4'>Sign Out</button>
         {user && <h1 className='mx-4'>{user?.displayName}</h1>}
       </div>
     </div>
+    {/* 
+        - Main Container
+            - Video Background
+            - Video Title
+        - Secondary Container
+            - Movie List * n
+              - Cards * n      
+      */}
+      <MainContainer/>
+      <SecondaryContainer/>
     </>
   )
 }
