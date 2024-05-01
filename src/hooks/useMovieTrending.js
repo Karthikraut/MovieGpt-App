@@ -9,7 +9,6 @@ const useMovieTrending =()=>{
     const movieTrending = async ()=>{
         const data = await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', OPTIONS);
         const jsonData =await data.json();
-      
         dispatch(addNowPlayingMovies(jsonData.results));    
       }
       useEffect(() => {

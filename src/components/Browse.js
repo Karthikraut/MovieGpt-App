@@ -8,6 +8,8 @@ import { auth } from '../utils/firebase'
 import useMovieTrending from '../hooks/useMovieTrending'
 import MainContainer from './MainContainer'
 import SecondaryContainer from './SecondaryContainer'
+import usePopularMovies from '../hooks/usePopularMovies'
+import useTrendingMovies from '../hooks/useTrendingMovies'
 
 const Browse = () => {
   const navigate =useNavigate();
@@ -19,10 +21,11 @@ const Browse = () => {
   }
 
   useMovieTrending();
+  usePopularMovies();
+  useTrendingMovies();
 
   useEffect(()=>{
-    if(user===null){
-      console.log("Current User ",auth.currentUser);
+    if(user===null ){
       navigate("/");
     }
   },[user])

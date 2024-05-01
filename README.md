@@ -16,6 +16,9 @@
 - Add hardcoded values to the constants file
 - Register TMDB API & create and app & get acess token
 - Get Data from TMDB now playing movies list API
+- Secondary container has been developed 
+- Popular Moives and trending movies api has been called
+
 
 
 # Features

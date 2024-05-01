@@ -22,7 +22,6 @@ const Login = () => {
         const message = checkValidateData(email.current.value,password.current.value);
         setErrorMsg(message);
         if(message) return;
-        console.log("hELLO")
         //Sign In Sign Up Logic
         if(!isSignInForm){
             //Sign Up Logic
@@ -30,7 +29,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed up    
                 const user = userCredential.user;     
-                console.log(" Error line 1");
+              
                 updateProfile(user, {
                     displayName: name.current.value
                 })

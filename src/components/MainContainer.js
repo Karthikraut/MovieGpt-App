@@ -8,7 +8,7 @@ const MainContainer = () => {
   const movies = useSelector((store)=>store.movies?.nowPlayingMovies);
   if(movies===null) return; //This is Known as early return
 
-  const mainMovie = movies[2];
+  const mainMovie = movies[1];
 
   const {original_name,original_title ,overview, id}= mainMovie;
   return (
@@ -19,4 +19,4 @@ const MainContainer = () => {
   )
 }
 
-export default MainContainer
+export default MainContainer;
